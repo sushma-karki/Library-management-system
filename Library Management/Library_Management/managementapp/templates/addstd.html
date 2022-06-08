@@ -1,0 +1,23 @@
+<!-- 
+  @Author: Your name
+  @Date:   2022-06-08 22:49:22
+  @Last Modified by:   Your name
+  @Last Modified time: 2022-06-08 22:49:32
+-->
+{% extends 'base.html' %} {%block body%}
+
+<h1 style="color:red;">STUDENT FORM</h1>
+<br>
+<div class="login-form1 shadow-lg">
+    <form method="POST">
+        {%csrf_token%}
+        <table cellspacing="10" border="1">
+            {{form.as_table}}
+            <tr>
+                <td><input type="submit" value="Save"></td>
+                <td><input type="reset" value="Reset"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+{%endblock%}

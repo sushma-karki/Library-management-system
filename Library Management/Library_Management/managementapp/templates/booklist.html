@@ -1,0 +1,55 @@
+<!-- 
+  @Author: Your name
+  @Date:   2022-06-08 22:50:37
+  @Last Modified by:   Your name
+  @Last Modified time: 2022-06-08 22:50:56
+-->
+{% extends 'base.html' %} {%block body%}
+
+<style>
+    #txtarea {
+        top: 18%;
+        right: 1%;
+        position: absolute;
+    }
+</style>
+
+<div>
+    <form method="POST">
+        {%csrf_token%}
+        <h1 style="color: red;">BOOK LIST</h1>
+        <br>
+
+    </form>
+</div>
+
+<table class="table" border="1" cellspacing="10">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Contact</th>
+        <th colspan='2'>Action</th>
+
+    </tr>
+    {%for i in blist%}
+    <tr>
+        <td>{{i.id}}</td>
+        <td>{{i.name}}</td>
+        <td>{{i.email}}</td>
+        <td>{{i.contact}}</td>
+        <td><a href="{%url 'managementapp:deletebook' i.id%}">Delete</a></td>
+        <td><a href="{%url 'managementapp:editbook' i.id%}">Edit</a></td>
+    </tr>
+    {%endfor%}
+
+</table>
+<br> {%endblock%}
+
+</div>
+
+<style>
+    a {
+        text-decoration: none;
+    }
+</style>

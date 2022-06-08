@@ -1,0 +1,47 @@
+<!-- 
+  @Author: Your name
+  @Date:   2022-06-08 22:49:57
+  @Last Modified by:   Your name
+  @Last Modified time: 2022-06-08 22:50:18
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        a {
+            color: black;
+            margin: 0px;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            color: red;
+        }
+        
+        #main {
+            padding-left: 15px;
+            font-size: 10px;
+            text-align: center;
+        }
+    </style>
+    {%load static%} {%include 'nav.html'%} {%block body%}
+    <div id="sidnav">
+        <h2>
+            <a href="/">Home</a> {%if user.is_authenticated%} >
+            <a href="{%url 'managementapp:logout' %}">LogOut</a> {%endif%}
+            <a href="{%url 'managementapp:login' %}">LogIn</a>
+
+        </h2>
+    </div>{% endblock body %}
+
+</body>
+
+</html>

@@ -1,0 +1,39 @@
+<!-- 
+  @Author: Your name
+  @Date:   2022-06-08 22:52:41
+  @Last Modified by:   Your name
+  @Last Modified time: 2022-06-08 22:53:00
+-->
+{% extends 'base.html'%}
+
+<div>
+    {%block body%}
+
+    <h1 style="color: red;">STUDENT LIST</h1>
+    <br>
+    <table class="table" border="1" cellspacing="10">
+        <tr>
+            <th>Id</th>
+            <th>Date</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Book-Name</th>
+            <th>Contact</th>
+            <th colspan='2'>Action</th>
+        </tr>
+        {%for i in slist%}
+
+        <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.date}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.email}}</td>
+            <td>{{i.bookname}}</td>
+            <td>{{i.contact}}</td>
+            <td><a href="{%url 'managementapp:deletestd' i.id%}">Delete</a></td>
+            <td><a href="{%url 'managementapp:editstd' i.id%}">Edit</a></td>
+        </tr>
+        {%endfor%}
+    </table>
+    <br> {%endblock%}
+</div>
